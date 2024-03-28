@@ -38,7 +38,7 @@ def process_authors(authors):
 
 with open('dblp.v12.json', 'rb') as f:
     j = bigjson.load(f)
-    while count<1000:
+    while count<100000:
         if count % 100 == 0:
             print(count)
         new_row = ''
@@ -102,9 +102,9 @@ with open('dblp.v12.json', 'rb') as f:
 data = pd.DataFrame.from_dict(element_dict)
 print(data.head(10))
 
-data.to_csv("citation_network_1k.csv", index=False)
+data.to_csv("citation_network_100k.csv", index=False)
 
-with open('graph_adjlist_1k.txt', 'w') as f:
+with open('graph_adjlist_100k.txt', 'w') as f:
     f.write(graph_str)
 
 
